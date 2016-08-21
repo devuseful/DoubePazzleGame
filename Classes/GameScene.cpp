@@ -167,7 +167,6 @@ void Game::menuCloseCallback(CCObject* pSender)
 
 
 // функция обработки обратного вызова анимации создания уровня
-// функция добавляет точки А и Б в поле
 void Game::_callbackCreateLevelMapAnimation(CCNode * node) {
 	lockTouch_ = false;
 }
@@ -244,8 +243,8 @@ UIImageView *Game::_getBackgroundImage() {
 
 
 void Game::_addGameStartText(UIImageView *background) {
-	// добавление текста инициативы
-	LabelBMFont	*textLabel = LabelBMFont::create();
+	// добавление текста 
+	LabelBMFont *textLabel = LabelBMFont::create();
 	textLabel->setFntFile("fonts/play_100_0.fnt");
 	textLabel->setPosition(ccp(0, -120));
 	textLabel->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -272,7 +271,7 @@ void Game::_callbackGameOver(CCNode * pNode) {
 }
 
 void Game::_addGameOverText() {
-	// добавление текста инициативы
+	// добавление текста
 	level_ = 0;
 	curTile_ = nullptr;
 	this->_generateMap(this->_getBackgroundImage(), level_ + 1);
@@ -291,7 +290,6 @@ void Game::_addGameOverText() {
 	CCAction *actionText = CCRepeatForever::create(
 		CCSequence::create(
 		CCTintTo::create(duration, 255, 0, 0),
-		//CCDelayTime::create(duration / 2),
 		CCTintTo::create(duration, 255, 255, 0),
 		0
 		));
